@@ -151,6 +151,7 @@ $testList = Test::listByUserId($idUser);
 
     </div>
     <hr>
+
     <!-- lista de test -->
     <?php if (!empty($testList)) : ?>
         <div class="owl-carousel owl-theme" id="test-list">
@@ -165,52 +166,57 @@ $testList = Test::listByUserId($idUser);
                         <h5 class="card-title mb-0"><?= e($test->title) ?></h5>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary" title="Editar test" data-bs-toggle="modal" data-bs-target="#updateTestMOdal"> <i class="fas fa-edit"></i> Editar</button>
-                        <button class="btn btn-danger" title="Borrar test" data-bs-toggle="modal" data-bs-target="#deleteTestModal"> <i class="fas fa-trash-alt"></i> Borrar</button>
-                    </div>
-
-                    <!-- Modals warning  -->
-                    <div data-bs-theme="dark">
-                        <!-- Modal update  -->
-                        <div class="modal fade" id="updateTestMOdal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateTestMOdalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="updateTestMOdalLabel">Editar Test</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Si cambias cualquier texto de alguna pregunta o respuesta o eliminas alguna de ellas las respuestas de los usuarios se eliminaran. ¿Esta de acuerdo?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a type="button" class="btn btn-primary" href="test_form.php?idTest=<?= $test->idTest ?>">Editar</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal update -->
-                        <div class="modal fade" id="deleteTestModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteTestModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="deleteTestModalLabel">Borrar test</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>¿Estas seguro que quieres Borrar el test?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a type="button" class="btn btn-primary" href="ajax/deleteTest.php?idTest=<?= $test->idTest ?>">Borrar</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="btn btn-primary edit-btn" title="Editar test" data-bs-toggle="modal" data-bs-target="#updateTestModal" data-id="<?= $test->idTest ?>">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger delete-btn" title="Borrar test" data-bs-toggle="modal" data-bs-target="#deleteTestModal" data-id="<?= $test->idTest ?>">
+                            <i class="fas fa-trash-alt"></i> Borrar
+                        </button>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <!-- Modals warning  -->
+        <div data-bs-theme="dark">
+            <!-- Modal update  -->
+            <div class="modal fade" id="updateTestModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateTestMOdalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="updateTestMOdalLabel">Editar Test</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Si cambias cualquier texto de alguna pregunta o respuesta o eliminas alguna de ellas las respuestas de los usuarios se eliminaran. ¿Esta de acuerdo?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a id="editModalLink" type="button" class="btn btn-primary" href="#">Editar</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal update -->
+            <div class="modal fade" id="deleteTestModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteTestModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteTestModalLabel">Borrar test</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Estas seguro que quieres Borrar el test?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a id="deleteModalLink" type="button" class="btn btn-primary" href="#">Borrar</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <?php endif; ?>
 </div>
 
@@ -218,7 +224,6 @@ $testList = Test::listByUserId($idUser);
 <script src="lib/OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
 <script type="module" src="assets/js/login-register.js"></script>
 <script type="module" src="assets/js/user.js"></script>
-
 </body>
 
 </html>

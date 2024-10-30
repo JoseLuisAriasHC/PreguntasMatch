@@ -31,8 +31,8 @@ $listTest = Test::list($category, $title, $order);
         </div>
 
         <div class="col-md-2 col-sm-3 my-2">
-            <select class="form-select" name="order">
-                <option class="dropdown-item" value="date-desc" <?php echo $order == 'date-desc' ? 'selected' : ''; ?>>Subidos recientes</option>
+            <select class="form-select" name="order" onchange="this.form.submit()">>
+                <option class="dropdown-item" value="date-desc" <?php echo $order == 'date-desc' ? 'selected' : ''; ?> >Subidos recientes</option>
                 <option class="dropdown-item" value="date-asc" <?php echo $order == 'date-asc' ? 'selected' : ''; ?>>Más antiguos</option>
                 <option class="dropdown-item" value="title-asc" <?php echo $order == 'title-asc' ? 'selected' : ''; ?>>Título A-Z</option>
                 <option class="dropdown-item" value="title-desc" <?php echo $order == 'title-desc' ? 'selected' : ''; ?>>Título Z-A</option>
@@ -83,5 +83,4 @@ $listTest = Test::list($category, $title, $order);
 <?php include __DIR__ . '/views/scripts.php'; ?>
 <script type="module" src="assets/js/login-register.js"></script>
 </body>
-
 </html>

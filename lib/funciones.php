@@ -5,7 +5,7 @@ function e($s)
 }
 
 const BD_HOST = '127.0.0.1';
-const BD_USER = 'jose';
+const BD_USER = 'root';
 const BD_PWD = 'jo12se34';
 const BD_SCHEME = 'preguntasmatch';
 
