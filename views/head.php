@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de tu sitio web</title>
+    <title>PreguntasMatch</title>
     <!-- Enlaces a archivos CSS, fuentes, iconos u otros recursos -->
     <link rel="icon" href="assets/img/faviconConoceMe.PNG" type="image/x-icon">
     <script src="https://kit.fontawesome.com/0862bc7086.js" crossorigin="anonymous"></script>

@@ -10,7 +10,7 @@ class test_of_the_day
     public static function getTest()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.test_of_the_day ORDER BY idTestOfTheDay DESC LIMIT 1");
+        $st = $bd->prepare("SELECT * FROM railway.test_of_the_day ORDER BY idTestOfTheDay DESC LIMIT 1");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -30,7 +30,7 @@ class test_of_the_day
     public static function deleteById($idTest)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("DELETE FROM preguntasmatch.test_of_the_day WHERE idTest = ?");
+        $st = $bd->prepare("DELETE FROM railway.test_of_the_day WHERE idTest = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }

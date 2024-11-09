@@ -11,7 +11,7 @@ class Question
     public function insert()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("INSERT INTO preguntasmatch.questions(text, idTest, idCategory)
+        $st = $bd->prepare("INSERT INTO railway.questions(text, idTest, idCategory)
                          VALUES (?, ?, ?)");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
@@ -34,7 +34,7 @@ class Question
     public static function list($idTest)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.questions WHERE idTest = ?");
+        $st = $bd->prepare("SELECT * FROM railway.questions WHERE idTest = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -60,7 +60,7 @@ class Question
     public static function getById($idQuestion)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.questions WHERE idQuestion = ?");
+        $st = $bd->prepare("SELECT * FROM railway.questions WHERE idQuestion = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -112,7 +112,7 @@ class Question
     public static function deleteByIdTest($idTest)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("DELETE FROM preguntasmatch.questions WHERE idTest = ?");
+        $st = $bd->prepare("DELETE FROM railway.questions WHERE idTest = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -130,7 +130,7 @@ class Question
             die("Error: idUser no está definido");
         }
         $bd = abrirBD();
-        $st = $bd->prepare("UPDATE preguntasmatch.questions SET idCategory=? WHERE idQuestion=?");
+        $st = $bd->prepare("UPDATE railway.questions SET idCategory=? WHERE idQuestion=?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }

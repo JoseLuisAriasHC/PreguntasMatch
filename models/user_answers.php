@@ -14,7 +14,7 @@ class User_answers
     public function insert()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("INSERT INTO preguntasmatch.user_answers (idUser,idTest, idQuestion, idSelectedAnswer, message, date)
+        $st = $bd->prepare("INSERT INTO railway.user_answers (idUser,idTest, idQuestion, idSelectedAnswer, message, date)
                          VALUES (?, ?, ?, ?, ?, ?)");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
@@ -40,7 +40,7 @@ class User_answers
     public static function list($idSelectedAnswer)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.user_answers WHERE idSelectedAnswer = ? ORDER BY date DESC;");
+        $st = $bd->prepare("SELECT * FROM railway.user_answers WHERE idSelectedAnswer = ? ORDER BY date DESC;");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -66,7 +66,7 @@ class User_answers
     public static function getLastMessage($idSelectedAnswer, $idUser)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.user_answers 
+        $st = $bd->prepare("SELECT * FROM railway.user_answers 
                             WHERE idSelectedAnswer = ? AND idUser != ? AND message IS NOT NULL AND message != ''
                             ORDER BY date DESC
                             LIMIT 1;");
@@ -95,7 +95,7 @@ class User_answers
         }
 
         $bd = abrirBD();
-        $st = $bd->prepare("UPDATE preguntasmatch.user_answers 
+        $st = $bd->prepare("UPDATE railway.user_answers 
                         SET idUser = ?, idTest = ?, idQuestion = ?, idSelectedAnswer = ?, message = ?, date = ?
                         WHERE idUserAnswer = ?");
         if ($st === FALSE) {
@@ -122,7 +122,7 @@ class User_answers
     public static function getUserAnswer($idUser, $idQuestion)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.user_answers WHERE idUser = ? AND idQuestion = ? LIMIT 1");
+        $st = $bd->prepare("SELECT * FROM railway.user_answers WHERE idUser = ? AND idQuestion = ? LIMIT 1");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -144,7 +144,7 @@ class User_answers
     public static function deleteByIdTest($idTest)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("DELETE FROM preguntasmatch.user_answers WHERE idTest = ?");
+        $st = $bd->prepare("DELETE FROM railway.user_answers WHERE idTest = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }

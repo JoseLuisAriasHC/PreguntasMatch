@@ -35,7 +35,7 @@ foreach ($answers as $k => $answer) {
         $result = true;
     }
 }
-$res['title'] = $result  != false ? $question->text : "No se ha encontrado resultados";
+$res['title'] = $result  != false ? $question->text : "No se ha encontrado resultados,\n¡Eres el primero en responder!";
 $res['message'] = $lastMessage  != '' ? $lastMessage->message : '';
 $res['labels'] = $answerTxt;
 $res['data'] = $answerCount;

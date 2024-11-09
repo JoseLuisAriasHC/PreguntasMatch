@@ -4,10 +4,10 @@ function e($s)
     return htmlspecialchars($s, ENT_QUOTES);
 }
 
-const BD_HOST = '127.0.0.1';
+const BD_HOST = 'junction.proxy.rlwy.net:34905';
 const BD_USER = 'root';
-const BD_PWD = 'jo12se34';
-const BD_SCHEME = 'preguntasmatch';
+const BD_PWD = 'tbEPsqHJObnDQYIgZjRjSNbPcXMNoOqj';
+const BD_SCHEME = 'railway';
 
 function abrirBD()
 {

@@ -302,6 +302,12 @@ $categories = Category::list();
             </button>
         </div>
     </form>
+
+    <div class="d-flex justify-content-center">
+        <div id="loadingScreen" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 </div>
 
 <?php include __DIR__ . '/views/scripts.php'; ?>

@@ -10,7 +10,7 @@ class Answer
     public function insert()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("INSERT INTO preguntasmatch.answers(text, idQuestion) VALUES (?, ?)");
+        $st = $bd->prepare("INSERT INTO railway.answers(text, idQuestion) VALUES (?, ?)");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -31,7 +31,7 @@ class Answer
     public static function list($idQuestion)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.answers WHERE idQuestion = ?");
+        $st = $bd->prepare("SELECT * FROM railway.answers WHERE idQuestion = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -57,7 +57,7 @@ class Answer
     public static function getById($id)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.answers WHERE idAnswer = ?");
+        $st = $bd->prepare("SELECT * FROM railway.answers WHERE idAnswer = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -81,7 +81,7 @@ class Answer
     public static function deleteByIdTest($idTest)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("DELETE FROM preguntasmatch.answers WHERE idQuestion IN (SELECT idQuestion FROM questions WHERE idTest = ?)");
+        $st = $bd->prepare("DELETE FROM railway.answers WHERE idQuestion IN (SELECT idQuestion FROM questions WHERE idTest = ?)");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }

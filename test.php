@@ -47,7 +47,7 @@ $progressBar = 100 * ($numQuestion + 1) / count($questionList);
 <div class="container text-center" id="test" data-id-question="<?= $question->idQuestion ?>" data-message="">
     <?php if ($error != null) : ?>
         <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>Error código manipulado: </strong><?=e($error)?>
+            <strong>Error código manipulado: </strong><?= e($error) ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
@@ -72,6 +72,11 @@ $progressBar = 100 * ($numQuestion + 1) / count($questionList);
                     <div class="bg-light p-3 rounded text-answer" data-id-answer="<?= $answer->idAnswer ?>"><?= e($answer->text) ?></div>
                 </div>
             <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div id="loadingScreen" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>

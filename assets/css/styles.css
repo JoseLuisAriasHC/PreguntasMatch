@@ -240,6 +240,14 @@
 /* --------------------Test-------------------------- */
 /* -------------------------------------------------- */
 
+#loadingScreen{
+  width: 5em !important;
+  height: 5em !important;
+  color: #ff6347;
+  border-width: 0.5em;
+  display: none;
+}
+
 #question_answers {
   transition: opacity 1.1s ease-in-out;
 }

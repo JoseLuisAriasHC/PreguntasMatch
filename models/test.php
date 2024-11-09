@@ -17,7 +17,7 @@ class Test
     public function insert()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("INSERT INTO preguntasmatch.test(title, description, image, idUser, date)
+        $st = $bd->prepare("INSERT INTO railway.test(title, description, image, idUser, date)
                          VALUES (?, ?, ?, ?, ?)");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
@@ -110,7 +110,7 @@ class Test
 
     public static function getById($idTest){
         $bd = abrirBD();
-        $st = $bd->prepare("SELECT * FROM preguntasmatch.test where idTest=?");
+        $st = $bd->prepare("SELECT * FROM railway.test where idTest=?");
         if ($st === FALSE) {
             die("Error BD: " + $bd->error);
         }
@@ -143,7 +143,7 @@ class Test
 
         // borrar test
         $bd = abrirBD();
-        $st = $bd->prepare("DELETE FROM preguntasmatch.test WHERE idTest = ?");
+        $st = $bd->prepare("DELETE FROM railway.test WHERE idTest = ?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
@@ -161,7 +161,7 @@ class Test
             die("Error: idUser no está definido");
         }
         $bd = abrirBD();
-        $st = $bd->prepare("UPDATE preguntasmatch.test SET title=?, description=?, image=?, date=? WHERE idTest=?");
+        $st = $bd->prepare("UPDATE railway.test SET title=?, description=?, image=?, date=? WHERE idTest=?");
         if ($st === FALSE) {
             die("Error BD: " . $bd->error);
         }
