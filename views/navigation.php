@@ -7,7 +7,7 @@ $numIconsPNG = contarArchivosPNG($rutaCarpetaIcons);
 <nav class="navbar navbar-expand-sm fixed-top" data-bs-theme="dark" id="navigation">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <img src="assets/img/logo.PNG" alt="Logo" width="150">
+            <img src="assets/img/logo.png" alt="Logo" width="150">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
